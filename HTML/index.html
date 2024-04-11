@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Us</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initiL-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://kit.fontawesome.com/c4254e24a8.js"></script>
+  </head>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    .header {
+      display: flex;
+      padding: 20px;
+      background: linear-gradient(to right, #63ece6, #9ef5e9);
+    }
+    .navbar {
+      width: 85%;
+      display: flex;
+
+      margin: 35px auto;
+    }
+    .logo {
+      flex-basis: 15%;
+    }
+    .logo img {
+      width: 120px;
+      cursor: pointer;
+    }
+    .menuicon {
+      display: flex;
+      flex: 1;
+
+      text-align: right;
+      justify-content: space-between;
+      padding: 2% 6%;
+    }
+    .menuicon ul li {
+      list-style: none;
+      display: inline-block;
+      padding: 8px 12px;
+      position: relative;
+      margin-left: 40px;
+      cursor: pointer;
+    }
+    .menuicon ul li a {
+      color: rgb(34, 126, 168);
+      text-decoration: none;
+      font-size: 18px;
+      text-align: right;
+    }
+    .menuicon ul li::after {
+      content: "";
+      width: 0%;
+      height: 2px;
+      background: #056886;
+      display: block;
+      margin: auto;
+      transition: 0.5s;
+    }
+    .menuicon ul li:hover::after {
+      width: 100%;
+    }
+    .menuicon ul li a .material-icons.md-18 {
+      font-size: 2px;
+    }
+    .aboutme {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 80px;
+      border-top: 2px solid #eeeeee;
+    }
+    .aboutme img {
+      width: 500px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 20px;
+    }
+    .aboutme img:hover {
+      cursor: pointer;
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    .aboutme-text {
+      box-sizing: border-box;
+      border: 2px solid black;
+      border-radius: 20px;
+      padding: 15px;
+      line-height: 30px;
+      background-color: rgba(177, 248, 224, 0.4);
+    }
+    .aboutme-text h2 {
+      font-size: 30px;
+      color: #333333;
+      text-transform: uppercase;
+      margin: 20px;
+      font-weight: bolder;
+    }
+    .aboutme-text p {
+      font-size: 15px;
+      color: #585858;
+      margin: 10px 0;
+    }
+    .foot1 {
+      width: 100%;
+      position: absolute;
+      color: #fff;
+      padding: 100px 0 30px;
+      font-size: 13px;
+      line-height: 20px;
+      background-color: rgb(186, 243, 224);
+      background: linear-gradient(to right, #00213c, #059784);
+    }
+    .foot1 .row {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .foot1 .col {
+      flex-basis: 22%;
+      padding: 10px;
+      color: white;
+    }
+    .col:nth-child(2),
+    .col:nth-child(3) {
+      flex-basis: 15%;
+    }
+    .foot1 .logo {
+      width: 130px;
+      margin-bottom: 30px;
+    }
+    .foot1 .col h3 {
+      width: fit-content;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .foot1 p {
+      font-size: 16px;
+    }
+    .mail-id {
+      width: fit-content;
+      border-bottom: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    .foot1 ul li {
+      list-style: none;
+      margin-bottom: 12px;
+    }
+    .foot1 li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+    }
+    .foot1 form {
+      padding-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 50px;
+    }
+    .foot1 form .fa {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+    .foot1 form input {
+      width: 100%;
+      background: transparent;
+      color: #ccc;
+      border: 0;
+      outline: none;
+    }
+    .foot1 form button {
+      background: transparent;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+    }
+    .foot1 form button .fa {
+      font-size: 16px;
+      color: #ccc;
+    }
+    .sociallink .fa {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-size: 20px;
+      color: #000;
+      background: #fff;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+    hr {
+      border: none;
+      height: 2px;
+      background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        cornflowerblue,
+        rgba(0, 0, 0, 0)
+      );
+    }
+
+    .copyright {
+      text-align: center;
+    }
+    .underline {
+      width: 100%;
+      height: 5px;
+      background: #767676;
+      border-radius: 3px;
+      position: absolute;
+      top: 25px;
+      left: 0;
+      overflow: hidden;
+    }
+    .underline span {
+      width: 15px;
+      height: 100%;
+      background: #fff;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      animation: moving 2s linear infinite;
+    }
+    @keyframes moving {
+      0% {
+        left: -20px;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+    @media (max-width: 700px) {
+      .foot1 {
+        bottom: unset;
+      }
+      .foot1 .col {
+        flex-basis: 100%;
+      }
+      .foot1 .col:nth-child(2),
+      .col:nth-child(3) {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+
+  <body>
+    <div class="header">
+      <div class="navbar">
+        <div class="logo">
+          <img src="nt1.jpg" />
+        </div>
+       <div class="menuicon">
+            <ul>
+              <li>
+                <a href="main.html">HOME <i class="fa fa-home"></i></a>
+              </li>
+              <li>
+                <a href="index.html">ABOUT <i class="fa fa-user-o"></i></a>
+              </li>
+              <li>
+                <a href="product.html">PRODUCTS <i class="fa fa-cog"></i></a>
+              </li>
+              <li>
+                <a href="d2.html">CONTACT <i class="fa fa-phone-square"></i></a>
+              </li>
+               <li>
+             <a href="login.html" class="login-button">LOGIN</a>
+</li>
+            </ul>
+          </div>
+      </div>
+    </div>
+    <div class="aboutme">
+      <div class="aboutme-text">
+        <h2>About Us</h2>
+        <p>
+          New Tech Auto components Pvt ltd Was started in the year 2002 as a
+          Partnership firm and moved into become a private limited company in
+          2011 onwards. We manufacture wide range of Auto Parts / Components to
+          OEMs for more than 18 years, operating in Chennai, India (hub for
+          automobile & auto parts industry in international trade) By combining
+          state-of-the-art facility and technology with a highly skilled and
+          motivated work force, NEWTECH endeavors to supply automobile products
+          in highest quality, at competitive price. Apart from producing Auto
+          Parts/Components of consistent quality and upholding satisfaction of
+          all, NEWTECH considers it as a duty to be socially responsible
+          organization and ensure that all parts are environmentally friendly.
+          NEWTECH capabilities span wide range of products in automotive sector
+          and the company stands as a perfect amalgam of people, technology and
+          resources reinforced with strategic top management with thorough
+          knowledge of nuances of automotive industry
+        </p>
+      </div>
+      <img src="img1.jpg" />
+    </div>
+    <section class="foot1">
+      <div class="row">
+        <div class="col">
+          <img src="nt1.jpg" class="logo" />
+          <div class="cont">
+            <p>We produce various spare parts for the vehicles......</p>
+          </div>
+        </div>
+        <div class="col">
+          <h3>
+            OFFICE
+            <div class="underline"><span></span></div>
+          </h3>
+          <p>
+            New Tech Auto Components Pvt Ltd.<br />119, SIDCO Industrial
+            Estate<br />Thirumudivakkam,<br />
+            Chennai-600 044 <br />
+            Tamil Nadu, India.<br />
+          </p>
+          <p class="mail-id">newtech@gmail.com</p>
+          <h4>+91 80561 14470</h4>
+        </div>
+        <div class="col">
+          <h3>
+            Links
+            <div class="underline"><span></span></div>
+          </h3>
+          <ul>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="index.html">About</a></li>
+            <li><a href="">Products</a></li>
+            <li><a href="d2.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>
+            Newsletter
+            <div class="underline"><span></span></div>
+          </h3>
+          <form>
+            <i class="fa fa-envelope"></i>
+            <input type="email" placeholder="Enter your email id" required />
+            <button type="submit"><i class="fa fa-arrow-right"></i></button>
+          </form>
+          <div class="sociallink">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">Copyrights 2023 - All Rights Reserved</p>
+    </section>
+  </body>
+</html>

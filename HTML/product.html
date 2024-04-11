@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="product.css" />
+    <script
+      src="https://kit.fontawesome.com/92d70a2fd8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="navbar">
+        <div class="logo">
+          <img src="nt1.jpg" />
+        </div>
+        <div class="menuicon">
+          <ul>
+            <li>
+              <a href="main.html">HOME <i class="fa fa-home"></i></a>
+            </li>
+            <li>
+              <a href="index.html">ABOUT <i class="fa fa-user-o"></i></a>
+            </li>
+            <li>
+              <a href="product.html">PRODUCTS <i class="fa fa-cog"></i></a>
+            </li>
+            <li>
+              <a href="d2.html">CONTACT <i class="fa fa-phone-square"></i></a>
+            </li>
+              <li>
+              <a href="buy.html" class="buy-now-button">Buy Now</a>
+            </li>
+            <li>
+              <div class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p id="count">0</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="root"></div>
+      <div class="sidebar">
+        <div class="head"><p>My cart</p></div>
+        <div id="cartitem">Your cart is empty</div>
+        <div class="foot">
+          <h3>Total</h3>
+          <h2 id="total">$ 0.00</h2>
+        </div>
+      </div>
+    </div>
+    <section class="foot1">
+      <div class="row">
+        <div class="col">
+          <img src="nt1.jpg" class="logo" />
+          <div class="cont">
+            <p>We produce various spare parts for the vehicles......</p>
+          </div>
+        </div>
+        <div class="col">
+          <h3>
+            OFFICE
+            <div class="underline"><span></span></div>
+          </h3>
+          <p>
+            New Tech Auto Components Pvt Ltd.<br />119, SIDCO Industrial
+            Estate<br />Thirumudivakkam,<br />
+            Chennai-600 044 <br />
+            Tamil Nadu, India.<br />
+          </p>
+          <p class="mail-id">newtech@gmail.com</p>
+          <h4>+91 80561 14470</h4>
+        </div>
+        <div class="col">
+          <h3>
+            Links
+            <div class="underline"><span></span></div>
+          </h3>
+          <ul>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="index.html">About</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="d2.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>
+            Newsletter
+            <div class="underline"><span></span></div>
+          </h3>
+          <form>
+            <i class="fa fa-envelope"></i>
+            <input type="email" placeholder="Enter your email id" required />
+            <button type="submit"><i class="fa fa-arrow-right"></i></button>
+          </form>
+          <div class="sociallink">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">Copyrights 2023 - All Rights Reserved</p>
+    </section>
+    <script>
+      const product = [
+        {
+          id: 0,
+          image: "prod1.jpg",
+          title: "product name1",
+          price: 28.0,
+        },
+        {
+          id: 1,
+          image: "prod2.jpg",
+          title: "product name2",
+          price: 25.0,
+        },
+        {
+          id: 2,
+          image: "prod3.jpg",
+          title: "product name3",
+          price: 35.0,
+        },
+        {
+          id: 3,
+          image: "prod4.jpg",
+          title: "product name4",
+          price: 16.0,
+        },
+        {
+          id: 4,
+          image: "prod5.jpg",
+          title: "product name5",
+          price: 31.0,
+        },
+        {
+          id: 5,
+          image: "prod6.jpg",
+          title: "product name6",
+          price: 18.0,
+        },
+      ];
+      const categories = [
+        ...new Set(
+          product.map((item) => {
+            return item;
+          })
+        ),
+      ];
+      let i = 0;
+      document.getElementById("root").innerHTML = categories
+        .map((item) => {
+          var { image, title, price } = item;
+          return (
+            `<div class='box'>
+            <div class='imgbox'>
+                <img class='images' src=${image}></img>
+            </div>
+        <div class='bottom'>
+            <p>${title}</p>
+            <h2>$ ${price}.00</h2>` +
+            "<button onclick='addtocart(" +
+            i++ +
+            ")'>Add to cart</button>" +
+            `</div>
+            </div>`
+          );
+        })
+        .join("");
+      var cart = [];
+      function addtocart(a) {
+        cart.push({ ...categories[a] });
+        displaycart();
+      }
+
+      function delElement(a) {
+        cart.splice(a, 1);
+        displaycart();
+      }
+
+      function displaycart(a) {
+        let j = 0,
+          total = 0;
+        document.getElementById("count").innerHTML = cart.length;
+        if (cart.length == 0) {
+          document.getElementById("cartitem").innerHTML = "your cart is empty";
+          document.getElementById("total").innerHTML = "$ " + 0 + ".00";
+        } else {
+          document.getElementById("cartitem").innerHTML = cart
+            .map((items) => {
+              var { image, title, price } = items;
+              total = total + price;
+              document.getElementById("total").innerHTML = "$ " + total + ".00";
+              return (
+                `<div class='cartitem'>
+                <div class='row-img'>
+                    <img class='rowimg' src=${image}>
+                    </div>
+                    <p style='font-size:12px;'>${title}</p>
+                    <h2 style='font-size:15px;'>${price}.00</h2>` +
+                "<i class='fa-solid fa-trash' onclick='delElement(" +
+                j++ +
+                ") '></i></div>"
+              );
+            })
+            .join("");
+        }
+      }
+    </script>
+  </body>
+</html>
